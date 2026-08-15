@@ -3,7 +3,7 @@
 A full-stack **test automation platform** with a web dashboard. It manages test projects, product backlogs, test cases, test runs, schedules, and reports. Automated tests (Selenium + TestNG) run against a target e-commerce site and results are stored and displayed in the dashboard.
 
 <div align="center">
-  <img src="docs/images/vizja-logo.png" alt="Uniwersytet Vizja" width="300"/>
+  <img src="./vizja-logo.png" alt="Uniwersytet Vizja" width="300"/>
 
 ### Graduation Thesis Project
 **University of Economics and Human Sciences in Warsaw**
