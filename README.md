@@ -264,6 +264,24 @@ Optionally, tests can be configured to use **AllOverCommerce** instead.
 
 ---
 
-## License
+## 📄 License
 
-This project is for educational / thesis use.
+This project is part of a graduation thesis at the **University of Economics and Human Sciences in Warsaw**.
+
+**Student:** Buğra Han (ID: 42078)  
+**Academic Year:** 2025/2026
+
+---
+
+## 📞 Contact
+
+**Buğra Han**  
+Student ID: 42078  
+University of Economics and Human Sciences in Warsaw
+
+---
+
+<div align="center">
+  <p>Made with ❤️ for graduation thesis</p>
+  <p>© 2026 Uniwersytet Vizja - All Rights Reserved</p>
+</div>
