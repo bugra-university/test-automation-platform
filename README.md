@@ -264,6 +264,20 @@ Optionally, tests can be configured to use **AllOverCommerce** instead.
 
 ---
 
+## 🤝 Contributing
+
+This is a graduation thesis project. Contributions are welcome for educational purposes.
+
+### Development Workflow
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+---
+
 ## 📄 License
 
 This project is part of a graduation thesis at the **University of Economics and Human Sciences in Warsaw**.
