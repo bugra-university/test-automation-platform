@@ -1,0 +1,27 @@
+/* Test Dashboard - Only used styles */
+
+.api-dashboard .test-content {
+    font-size: 1.0625rem;
+}
+
+.api-dashboard .test-content h2 {
+    font-size: 1.625rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.api-dashboard .test-content h3 {
+    font-size: 1.375rem;
+    font-weight: 600;
+}
+
+.api-dashboard .test-content p {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+}
+
+.report-action-btn {
+    padding: 4px 12px !important;
+    height: auto !important;
+    font-weight: 400 !important;
+}

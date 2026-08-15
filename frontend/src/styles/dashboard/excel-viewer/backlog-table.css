@@ -1,0 +1,303 @@
+/* backlog-table.css */
+.backlog-table-wrapper {
+    position: relative;
+}
+
+/* Excel header and tabs container */
+.excel-header-and-tabs-container {
+    position: sticky;
+    top: 0;
+    z-index: 18;
+    background: white;
+}
+
+/* Container - Tüm tablo için tek container */
+.excel-data-container {
+    max-height: calc(100vh - 350px);
+    overflow: auto;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    border-top-left-radius: 0;
+}
+
+/* Header stilleri */
+.excel-table-header {
+    background-color: #ECECEC;
+}
+
+.excel-table-header th {
+    background-color: #ECECEC;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+/* 2. sheet ve sonrası için yatay scroll */
+.excel-data-container[data-sheet-index="1"],
+.excel-data-container[data-sheet-index="2"],
+.excel-data-container[data-sheet-index="3"],
+.excel-data-container[data-sheet-index="4"],
+.excel-data-container[data-sheet-index="5"] {
+    overflow-x: auto !important;
+}
+
+/* Yatay scrollbar için dikey scrollbar'ın stillerini kullan */
+.excel-data-container[data-sheet-index]::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.excel-data-container[data-sheet-index]::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.excel-data-container[data-sheet-index]::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+.excel-data-container[data-sheet-index]::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Data container scrollbar styling */
+.excel-data-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.excel-data-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.excel-data-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+.excel-data-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.excel-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: system-ui;
+    table-layout: fixed; /* Ensures column widths are consistent across tables */
+}
+
+.excel-table-header {
+    background-color: #ECECEC;
+}
+
+/* All header cells should hide overflow for corner radius */
+.excel-table-header tr th {
+    background: #ECECEC;
+}
+
+.excel-table td, .excel-table th {
+    border: 1px solid #e5e7eb;
+    padding: 0.5rem;
+}
+
+.excel-table th {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #4B5563;
+}
+
+.excel-table td {
+    font-size: 0.75rem;
+    color: #374151;
+}
+
+/* Restore zebra effect */
+.excel-table-body tr:nth-child(even) {
+    background: #F8F9FD;
+}
+
+.excel-table-body tr:hover {
+    background: inherit;
+}
+
+/* Individual cell hover effect */
+.excel-table td:hover {
+    background: #E3F2FD !important;
+}
+
+.selected-row {
+    background: #F0F4FF !important;
+}
+
+.checkbox-column {
+    width: 30px;
+    text-align: center;
+    font-size: 0.75rem;
+}
+
+.row-number-column {
+    width: 30px;
+    text-align: center;
+    font-size: 0.75rem;
+}
+
+/* Checkbox styles */
+.regular-checkbox {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #999;
+    appearance: none;
+    border-radius: 0;
+    cursor: pointer;
+    background: white;
+    margin: 0 auto;
+    display: block;
+}
+
+.regular-checkbox:checked {
+    background: white;
+    position: relative;
+}
+
+.regular-checkbox:checked:after {
+    content: '';
+    position: absolute;
+    border: solid black;
+
+}
+
+.validation-column {
+    max-width: 100px !important;
+    min-width: 100px !important;
+    width: 100px !important;
+    text-align: center !important;
+}
+
+.user-story-id-column {
+    max-width: 100px !important;
+    min-width: 100px !important;
+    width: 100px !important;
+    text-align: center !important;
+}
+
+.tcid-column {
+    max-width: 100px !important;
+    min-width: 100px !important;
+    width: 100px !important;
+    text-align: center !important;
+}
+
+.test-objective-column {
+    max-width: 150px !important;
+    min-width: 150px !important;
+    width: 150px !important;
+    text-align: center !important;
+}
+
+.pre-condition-column {
+    max-width: 150px !important;
+    min-width: 150px !important;
+    width: 150px !important;
+    text-align: center !important;
+}
+
+.no-column {
+    max-width: 30px !important;
+    min-width: 30px !important;
+    width: 30px !important;
+    text-align: center !important;
+}
+
+.steps-column {
+    max-width: 300px !important;
+    min-width: 300px !important;
+    width: 300px !important;
+}
+
+/* Steps sütunu başlığı için */
+.excel-table-header th.steps-column {
+    text-align: center !important;
+}
+
+/* Steps sütunu verileri için */
+.excel-table-body td.steps-column {
+    text-align: left !important;
+    padding-left: 10px !important;
+}
+
+.test-data-column {
+    max-width: 150px !important;
+    min-width: 150px !important;
+    width: 150px !important;
+    text-align: center !important;
+}
+
+/* Test Data sütunu verileri için word-wrap */
+.excel-table-body td.test-data-column,
+.excel-table-body td.expected-result-column,
+.excel-table-body td.actual-result-column {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    text-align: left !important;
+    padding: 8px !important;
+    line-height: 1.4 !important;
+}
+
+.expected-result-column {
+    max-width: 150px !important;
+    min-width: 150px !important;
+    width: 150px !important;
+    text-align: center !important;
+}
+
+.actual-result-column {
+    max-width: 100px !important;
+    min-width: 100px !important;
+    width: 100px !important;
+    text-align: center !important;
+}
+
+.home-column {
+    max-width: 100px !important;
+    min-width: 100px !important;
+    width: 100px !important;
+    text-align: center !important;
+}
+
+/* Table container styling */
+.table-scroll-container {
+    position: relative;
+    border-radius: 0 0 12px 12px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: calc(100vh - 160px);
+    border: 1px solid #e5e7eb;
+    border-top: none;
+}
+
+.excel-table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 12px;
+}
+
+.excel-table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 12px;
+}
+
+/* Thin scrollbar styling for table container */
+.table-scroll-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.table-scroll-container::-webkit-scrollbar-track {
+    background: transparent;
+    margin-top: 60px; /* Increased from 60px to 120px to move scrollbar down */
+}
+
+.table-scroll-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+.table-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+} 

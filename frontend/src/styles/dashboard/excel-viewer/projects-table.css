@@ -1,0 +1,180 @@
+/* projects-table.css */
+/* Base table styles */
+.projects-table-container {
+    background: white;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+.projects-table-scroll-container {
+    width: 100%;
+    max-height: calc(100vh - 300px);
+    overflow: auto;
+    border-radius: 0.5rem;
+    background: white;
+}
+
+.projects-table {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+/* Header styles */
+.projects-table-header {
+    background: #ECECEC;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.projects-table-header th {
+    padding: 0.6rem 1rem;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #4B5563;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid #e5e7eb;
+    white-space: nowrap;
+}
+
+/* Cell styles */
+.projects-table td,
+.projects-table th {
+    border: 1px solid #e5e7eb;
+}
+
+.projects-cell-content {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    font-size: 0.875rem;
+    padding: 0.6rem 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Cell variants */
+.projects-cell-name { color: #2563eb; font-weight: 500; }
+.projects-cell-description { color: #4B5563; }
+.projects-cell-date, 
+.projects-cell-test-cases { 
+    color: #6B7280; 
+}
+
+/* Status badges */
+.projects-status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 0.125rem;
+    padding: 0.125rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.projects-status-active { background: #dcfce7; color: #166534; }
+.projects-status-inactive { background: #f3f4f6; color: #1f2937; }
+.projects-status-pending { background: #fef9c3; color: #854d0e; }
+
+/* Actions */
+.projects-cell-actions {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.projects-action-button {
+    height: 2.25rem;
+    width: 2.25rem;
+    padding: 0;
+    border-radius: 0.125rem;
+}
+
+.projects-action-button:hover { background: #f3f4f6; }
+
+.projects-action-icon {
+    height: 1.0rem;
+    width: 1.0rem;
+    color: #374151;
+}
+
+/* Dropdown */
+.projects-dropdown-item {
+    cursor: pointer;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+}
+
+.projects-dropdown-icon {
+    margin-right: 0.5rem;
+    height: 1rem;
+    width: 1rem;
+}
+
+.projects-dropdown-item-delete { color: #dc2626; }
+
+/* Row states */
+.projects-table-body tr:nth-child(even),
+.projects-table-body tr:nth-child(even) .content-cell { 
+    background: #F8F9FD; 
+}
+
+.projects-table-body tr:hover { background: #FFF0DA; }
+
+/* Selected row styles - using higher specificity instead of !important */
+.projects-table-body tr.projects-selected-row { background: #F0F4FF; }
+.projects-table-body tr.projects-selected-row .content-cell { background: #F0F4FF; }
+.projects-table-body tr.projects-selected-row:hover .content-cell { background: #FFF0DA; }
+
+/* Checkbox styles - using fixed width class */
+.projects-checkbox-column {
+    background: #ECECEC;
+    text-align: center;
+    /* Fixed width styles */
+    width: 24px;
+    min-width: 24px;
+    max-width: 24px;
+    padding: 0.2rem 0.1rem;
+    box-sizing: content-box;
+    overflow: hidden;
+}
+
+.projects-regular-checkbox {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    border: 1px solid #999;
+    background: white;
+    margin: 0 auto;
+    display: block;
+    border-radius: 0;
+}
+
+.projects-regular-checkbox:checked {
+    background: white;
+    position: relative;
+}
+
+.projects-regular-checkbox:checked:after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* White background - using higher specificity instead of !important */
+.projects-table-body .projects-white-bg { background: #FAFAFB; } 

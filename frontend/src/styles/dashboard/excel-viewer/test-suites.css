@@ -1,0 +1,609 @@
+.test-suites-wrapper {
+  position: relative;
+}
+
+.test-suites-container {
+  max-height: calc(100vh - 300px);
+  overflow: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.test-suites-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: system-ui;
+  table-layout: fixed;
+}
+
+/* Column widths */
+.test-suites-table th:first-child,
+.test-suites-table td:first-child {
+  width: 110px;
+  min-width: 110px;
+  max-width: 110px;
+}
+
+.test-suites-table th:nth-child(2),
+.test-suites-table td:nth-child(2) {
+  width: 400px;
+  min-width: 400px;
+  max-width: 400px;
+}
+
+.test-suites-table th:nth-child(3),
+.test-suites-table td:nth-child(3) {
+  width: 90px;
+  min-width: 90px;
+  max-width: 90px;
+}
+
+.test-suites-table th:nth-child(4),
+.test-suites-table td:nth-child(4) {
+  width: 120px;
+  min-width: 120px;
+  max-width: 120px;
+}
+
+.test-suites-table th:nth-child(5),
+.test-suites-table td:nth-child(5),
+.test-suites-table th:nth-child(6),
+.test-suites-table td:nth-child(6) {
+  width: 120px;
+  min-width: 120px;
+  max-width: 120px;
+}
+
+.test-suites-table th:nth-child(7),
+.test-suites-table td:nth-child(7) {
+  width: 120px;
+  min-width: 120px;
+  max-width: 120px;
+}
+
+.test-suites-table th:nth-child(8),
+.test-suites-table td:nth-child(8) {
+  width: 120px;
+  min-width: 120px;
+  max-width: 120px;
+}
+
+.test-suites-header {
+  background-color: #ECECEC;
+}
+
+.test-suites-header th {
+  background-color: #ECECEC;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #4B5563;
+  text-transform: uppercase;
+  border-bottom: 1px solid #e5e7eb;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  height: calc(1.5rem + 1px);
+  padding: 0.5rem 0.5rem calc(0.5rem + 1px) 0.5rem;
+}
+
+.test-suites-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.test-suites-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.test-suites-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.test-suites-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.test-suites-row,
+.test-suites-row.test-case,
+.test-suites-row.test-step,
+.test-suites-table tr {
+  background-color: #ffffff !important;
+}
+
+/* Remove any status-based background colors */
+.test-suites-row.test-case[data-status="passed"] td,
+.test-suites-row.test-case[data-status="passed"],
+.test-suites-row[data-status="passed"] {
+  background-color: #ffffff !important;
+}
+
+.test-suites-row.test-step {
+  background-color: #FAFAFA;
+  font-size: 0.75rem;
+}
+
+.test-suites-row.test-step .test-suites-cell {
+  padding: 0.5rem;
+  color: #6B7280;
+  min-width: 110px;
+}
+
+/* Even rows slightly darker variations */
+.test-suites-body tr:nth-child(even).test-suites-row {
+  background-color: #F0F2F8; /* User Story even rows */
+}
+
+.test-suites-body tr:nth-child(even).test-suites-row.test-case {
+  background-color: #EDF4ED; /* Test Case even rows */
+}
+
+.test-suites-body tr:nth-child(even).test-suites-row.test-step {
+  background-color: #EDF4ED; /* Test Step even rows */
+}
+
+/* Hover effect */
+.test-suites-row:hover {
+  filter: brightness(0.98);
+}
+
+.test-suites-row.test-case:hover td {
+  position: relative;
+  z-index: 1;
+}
+
+/* Header cell styles */
+/* .test-suites-table th:first-child {
+  border-top-left-radius: 8px;
+}
+
+.test-suites-table th:last-child {
+  border-top-right-radius: 8px;
+} */
+
+.test-suites-cell {
+  border-top: none;
+  border-bottom: 1px solid #e5e7eb;
+  border-left: none;
+  border-right: none;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  color: #374151;
+}
+
+/* Ensure header cells have consistent border */
+.test-suites-header th {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Remove top border from body cells to prevent double border with header */
+.test-suites-table tbody tr:first-child td {
+  border-top: none;
+}
+
+/* Ensure no gap between header and first row */
+.test-suites-table tbody tr:first-child {
+  border-top: none;
+}
+
+.test-suites-cell-content {
+  display: flex;
+  align-items: center;
+}
+
+/* Tree view indentation */
+.test-suites-row .test-suites-cell:first-child .test-suites-cell-content {
+  justify-content: flex-start;
+  padding-left: 4px;
+}
+
+.test-suites-row.test-case .test-suites-cell:first-child .test-suites-cell-content {
+  padding-left: 24px;
+}
+
+.test-suites-row.test-step .test-suites-cell:first-child .test-suites-cell-content {
+  padding-left: 40px;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.test-suites-cell.center {
+  text-align: center;
+}
+
+.test-suites-cell-content.center {
+  justify-content: center;
+}
+
+.test-suites-expand-button {
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.test-suites-expand-button:hover {
+  background-color: #e5e7eb;
+}
+
+.test-suites-id {
+  font-size: 0.820rem;
+  font-weight: 600;
+  color: #4B5563;
+  text-transform: uppercase;
+}
+
+/* Test Case ID'leri (alt seviye) - biraz daha küçük */
+.test-suites-row.test-case .test-suites-id {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #6B7280;
+}
+
+/* Test Step ID'leri (en alt seviye) - en küçük */
+.test-suites-row.test-step .test-suites-id {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #6B7280;
+  white-space: nowrap;
+  word-break: keep-all;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  padding-right: 8px;
+}
+
+.test-suites-row.test-step .test-suites-cell:first-child {
+  white-space: nowrap;
+  word-break: keep-all;
+}
+
+/* Step numarası için daire stili */
+.test-suites-row.test-step .test-suites-id::after {
+  content: attr(data-step-number);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  background-color: #F3F4F6;
+  color: #4B5563;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-left: 2px;
+  border: 1.5px solid #9CA3AF;
+  padding: 0 2px;
+}
+
+/* Hover durumunda daire rengini değiştir */
+.test-suites-row.test-step:hover .test-suites-id::after {
+  background-color: #4B5563;
+  color: white;
+  border-color: #4B5563;
+}
+
+.test-suites-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4B5563;
+}
+
+/* Test Case NAME'leri (alt seviye) - biraz daha küçük */
+.test-suites-row.test-case .test-suites-name {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #6B7280;
+}
+
+/* Test Step NAME'leri (en alt seviye) - en küçük */
+.test-suites-row.test-step .test-suites-name {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #6B7280;
+}
+
+.test-suites-description {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.test-suites-status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+/* Status badge variations */
+.test-suites-status-badge.passed {
+  background-color: #ecfdf5;  /* Light green background */
+  color: #059669;            /* Green text */
+  border: 1px solid #a7f3d0; /* Light green border */
+}
+
+.test-suites-status-badge.failed {
+  background-color: #fef2f2;
+  color: #dc2626;
+}
+
+.test-suites-status-badge.not_finished {
+  background-color: #eff6ff;  /* Light blue background */
+  color: #2563eb;            /* Blue text */
+  border: 1px solid #bfdbfe; /* Light blue border */
+}
+
+.test-suites-status-badge.pending {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  border: 1px solid #dee2e6;
+}
+
+.test-suites-status-badge.running {
+  background-color: #eff6ff;
+  color: #2563eb;
+}
+
+.test-suites-status-badge.blocked {
+  background-color: #fffbeb;
+  color: #d97706;
+}
+
+.test-suites-status-badge.passed .status-icon {
+  background-color: #10b981;
+}
+
+.test-suites-status-badge.failed .status-icon {
+  background-color: #ef4444;
+}
+
+.test-suites-status-badge.running .status-icon {
+  background-color: #3b82f6;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.test-suites-status-badge.blocked .status-icon {
+  background-color: #f59e0b;
+}
+
+.test-suites-status-badge.pending .status-icon,
+.test-suites-status-badge.unknown .status-icon {
+  background-color: #9ca3af;
+}
+
+.test-suites-status-badge .status-icon {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-right: 6px;
+  display: inline-block;
+}
+
+/* Total Cases numbers - User Story'lerde büyük */
+.test-suites-total-cases {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #4B5563;
+}
+
+/* Test Case'lerde ve Step'lerde Total Cases - hafif küçük */
+.test-suites-row.test-case .test-suites-total-cases,
+.test-suites-row.test-step .test-suites-total-cases {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #6B7280;
+}
+
+.test-suites-progress,
+.test-suites-last-run,
+.test-suites-duration {
+  font-size: 0.75rem;
+  color: #6B7280;
+}
+
+/* Test Case ve Step'lerde progress, last run ve duration */
+.test-suites-row.test-case .test-suites-progress,
+.test-suites-row.test-case .test-suites-last-run,
+.test-suites-row.test-case .test-suites-duration,
+.test-suites-row.test-step .test-suites-progress,
+.test-suites-row.test-step .test-suites-last-run,
+.test-suites-row.test-step .test-suites-duration {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #6B7280;
+}
+
+.test-suites-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.test-suites-action-button {
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.test-suites-action-button:hover {
+  background-color: #f3f4f6;
+}
+
+.test-suites-action-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.test-suites-action-icon.run {
+  color: #10b981;
+  fill: #10b981;
+}
+
+.test-suites-action-icon.stop {
+  color: #dc2626;
+}
+
+.test-suites-action-icon.report {
+  color: #3b82f6;
+}
+
+.test-suites-action-icon.edit {
+  color: #6366f1;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+/* Even rows background */
+.test-suites-body tr:nth-child(even) {
+  background: #F8F9FD;
+}
+
+.test-suites-row.test-case .test-suites-status-badge.passed {
+  background-color: #f0fdf4;
+}
+
+.test-suites-table tr {
+  background-color: #ffffff;
+}
+
+.test-suites-progress-bar-container {
+  display: flex;
+  width: 100%;
+  height: 24px;
+  border-radius: 4px;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.test-suites-progress-bar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.test-suites-progress-text {
+  padding-left: 8px;
+  color: white;
+  white-space: nowrap;
+}
+
+.test-suites-progress-bar.passed {
+  background-color: #10b981;
+}
+
+.test-suites-progress-bar.not_finished {
+  background-color: #3b82f6;
+}
+
+.test-suites-progress-bar.pending {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+}
+
+.test-suites-progress-bar.pending .test-suites-progress-text {
+  color: #6c757d;
+}
+
+.test-suites-progress-bar.failed {
+  background-color: #ef4444;
+}
+
+.test-suites-status-badge.no_data {
+  background-color: #f8fafc;
+  color: #94a3b8;
+  border: 1px solid #e2e8f0;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  display: inline-block;
+  opacity: 0.7;
+}
+
+.test-suites-row:not(.test-case):not(.test-step) .test-suites-total-cases {
+  font-size: 1.15em;
+  font-weight: 600;
+}
+
+.test-suites-id-badge, .test-suites-id-badge:active, .test-suites-id-badge:focus, .test-suites-id-badge:visited {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.18em 0.7em;
+  border-radius: 1.2em;
+  background: #6366f1 !important;
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 0.98em;
+  box-shadow: 0 1px 4px 0 rgba(99,102,241,0.08);
+  transition: background 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.test-suites-row.test-case .test-suites-id-badge, .test-suites-row.test-case .test-suites-id-badge:active, .test-suites-row.test-case .test-suites-id-badge:focus {
+  background: #3b82f6 !important;
+  color: #fff !important;
+}
+
+.test-suites-row.test-step .test-suites-id-badge, .test-suites-row.test-step .test-suites-id-badge:active, .test-suites-row.test-step .test-suites-id-badge:focus {
+  background: #64748b !important;
+  color: #fff !important;
+}
+
+.test-suites-id-badge .test-suites-action-icon {
+  margin-right: 0.3em;
+  width: 1em;
+  height: 1em;
+  color: #fff;
+  opacity: 0.85;
+}
+
+.test-suites-step-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.32em;
+  width: 1.25em;
+  height: 1.25em;
+  border-radius: 50%;
+  background: #64748b;
+  color: #fff;
+  font-size: 0.92em;
+  font-weight: 600;
+  box-shadow: 0 1px 2px 0 rgba(100,116,139,0.10);
+}
+
+.test-suites-total-cases-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1em;
+  height: 2.1em;
+  min-width: 2.1em;
+  min-height: 2.1em;
+  border-radius: 50%;
+  background: #60a5fa;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.13em;
+  box-shadow: 0 1px 4px 0 rgba(99,102,241,0.08);
+  vertical-align: middle;
+} 

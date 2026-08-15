@@ -1,0 +1,108 @@
+/* adjusting the built-in theme - copied from calendar source */
+
+/* calendar event */
+.calendar_default_event_inner {
+    background: #2e78d6;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 10pt;
+    padding: 5px;
+    opacity: 0.8;
+}
+
+/* Calendar main container - rounded corners like other tables */
+.calendar_default_main {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+}
+
+/* Navigator rounded corners */
+.navigator_default_main {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+    border-top: none !important;
+}
+
+/* Override DayPilot navigator border-top more aggressively */
+.navigator_default_main,
+.navigator_default_main *,
+.navigator_default_main::before,
+.navigator_default_main::after {
+    border-top: none !important;
+}
+
+/* Target specific DayPilot navigator elements */
+div[class*="navigator_default"] {
+    border-top: none !important;
+}
+
+div[class*="navigator_default"]:before,
+div[class*="navigator_default"]:after {
+    border-top: none !important;
+}
+
+/* Calendar scrollbar styling - same as Backlog tab */
+.calendar_default_main *::-webkit-scrollbar,
+.calendar_default_main::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.calendar_default_main *::-webkit-scrollbar-track,
+.calendar_default_main::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.calendar_default_main *::-webkit-scrollbar-thumb,
+.calendar_default_main::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.calendar_default_main *::-webkit-scrollbar-thumb:hover,
+.calendar_default_main::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+/* Firefox için scrollbar */
+.calendar_default_main,
+.calendar_default_main * {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+/* Hide main scrollbar for Schedules tab - override container-content */
+.schedules-tab-container {
+  height: 100vh !important;
+  overflow: hidden !important;
+}
+
+/* Target the parent container when schedules tab is active */
+.container-content:has(.schedules-tab-container) {
+  overflow: hidden !important;
+}
+
+.container-content:has(.schedules-tab-container)::-webkit-scrollbar {
+  display: none !important;
+}
+
+.container-content:has(.schedules-tab-container) {
+  scrollbar-width: none !important;
+}
+
+/* Hide main page scrollbar for Schedules tab only */
+body:has(.schedules-tab-container) {
+  overflow: hidden !important;
+}
+
+body:has(.schedules-tab-container)::-webkit-scrollbar {
+  display: none !important;
+}
+
+body:has(.schedules-tab-container) {
+  scrollbar-width: none !important;
+} 

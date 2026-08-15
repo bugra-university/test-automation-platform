@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test Store — Demo E‑commerce</title>
+  <link rel="icon" type="image/png" href="docs/images/vizja-logo.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="logo">Test Store</a>
+      <nav class="nav">
+        <a href="#" class="nav-link">Shop</a>
+        <a href="#" class="register inline-type" id="link-register">Register</a>
+        <a href="#" class="w-icon-account" id="link-signin" title="Sign In" aria-label="Sign In">
+          <span class="icon-account"></span> Sign In
+        </a>
+        <a href="#" class="login logout inline-type" id="link-signout" style="display: none;">Sign Out</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <div class="container">
+        <h1>Welcome to Test Store</h1>
+        <p>Demo site for test automation. Register or sign in to continue.</p>
+      </div>
+    </section>
+
+    <!-- Auth panel: Create account / Sign In tabs (same IDs for tests) -->
+    <section class="panel panel-auth" id="panel-auth">
+      <div class="container narrow">
+        <div class="auth-tabs" role="tablist" aria-label="Register or Sign In">
+          <button type="button" class="auth-tab active" id="tab-register" role="tab" aria-selected="true"
+            aria-controls="panel-register" data-tab="register">Create an account</button>
+          <button type="button" class="auth-tab" id="tab-login" role="tab" aria-selected="false"
+            aria-controls="panel-login" data-tab="login">Sign In</button>
+        </div>
+
+        <div id="panel-register" class="auth-tab-content active" role="tabpanel" aria-labelledby="tab-register">
+          <h2 class="auth-tab-heading">Create an account</h2>
+          <form id="form-register" class="form" novalidate>
+            <div class="form-group">
+              <label for="reg_username">Username</label>
+              <input type="text" id="reg_username" name="reg_username" class="input" placeholder="Enter username"
+                autocomplete="username" />
+            </div>
+            <div class="form-group">
+              <label for="reg_email">Email address</label>
+              <input type="email" id="reg_email" name="reg_email" class="input" placeholder="your@email.com"
+                autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="reg_password">Password</label>
+              <input type="password" id="reg_password" name="reg_password" class="input"
+                placeholder="At least 12 characters" autocomplete="new-password" />
+            </div>
+            <div class="form-group checkbox-group">
+              <input type="checkbox" id="register-policy" name="register-policy" />
+              <label for="register-policy">I agree to the privacy policy</label>
+            </div>
+            <div class="form-actions">
+              <button type="submit" name="register" class="btn btn-primary">Sign Up</button>
+            </div>
+            <div class="submit-status" id="status-1" role="status" aria-live="polite" style="display: none;"></div>
+            <div class="submit-status" id="status-2" role="status" aria-live="polite" style="display: none;">An account
+              is already registered with that username or email. Please log in.</div>
+            <div id="yith-wcwl-message" style="display: none !important;" aria-hidden="true"></div>
+          </form>
+        </div>
+
+        <div id="panel-login" class="auth-tab-content" role="tabpanel" aria-labelledby="tab-login" hidden>
+          <h2 class="page-title auth-tab-heading" id="login-title">Sign In</h2>
+          <form id="form-login" class="form" novalidate>
+            <div class="form-group">
+              <label for="username">Username or email</label>
+              <input type="text" id="username" name="username" class="input" placeholder="Username or email"
+                autocomplete="username" required />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" class="input" placeholder="Password"
+                autocomplete="current-password" required />
+            </div>
+            <div class="form-actions">
+              <button type="submit" name="login" class="btn btn-primary">Log in</button>
+            </div>
+            <div class="submit-status login-error" id="login-error" role="alert" style="display: none;"></div>
+            <div class="submit-status login-error" id="login-fillout" role="alert" style="display: none;"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- My Account (after login/register success) - US03, US04 -->
+    <section class="panel panel-account" id="panel-account" style="display: none;">
+      <div class="container narrow">
+        <h2 class="page-title">My Account</h2>
+        <p>You are logged in. Use the Sign Out link in the header to log out.</p>
+        <p class="icon-box-title text-normal">Addresses</p>
+        <a href="#billing-form" id="link-billing-add" class="edit btn btn-link btn-primary btn-underline mb-4">ADD</a>
+        <a href="#billing-form" id="link-edit-billing" class="edit btn btn-link btn-primary btn-underline mb-4"
+          style="display: none;">Edit</a>
+        <a href="#" id="link-addresses" class="edit btn btn-link btn-primary btn-underline mb-4">Addresses</a>
+        <p class="icon-box-title text-normal" style="margin-top: 1.5rem;">Shipping Address</p>
+        <a href="#shipping-form" id="link-edit-shipping" class="edit btn btn-link btn-primary btn-underline mb-4">Edit
+          Your Shipping Address</a>
+      </div>
+    </section>
+
+    <!-- Billing Address form (US03) - same name/id as Anasayfa expects -->
+    <section class="panel panel-billing" id="panel-billing" style="display: none;">
+      <div class="container narrow">
+        <h2 class="auth-tab-heading" id="billing-title">Billing Address</h2>
+        <form id="form-billing" class="form">
+          <div class="form-group">
+            <label for="billing_first_name" class="icon-box-title text-normal">First name</label>
+            <input type="text" id="billing_first_name" name="billing_first_name" class="input" />
+          </div>
+          <div class="form-group">
+            <label for="billing_last_name">Last name</label>
+            <input type="text" id="billing_last_name" name="billing_last_name" class="input" />
+          </div>
+          <div class="form-group">
+            <label for="billing_email">Email</label>
+            <input type="email" id="billing_email" name="billing_email" class="input" value="" />
+          </div>
+          <div class="form-group">
+            <label for="billing_country_field">Country / Region</label>
+            <input type="text" id="billing_country_field" name="billing_country" class="input" placeholder="e.g. Turkey"
+              aria-owns="select2-billing_country-results" />
+          </div>
+          <div class="form-group">
+            <label for="billing_address_1">Street address</label>
+            <input type="text" id="billing_address_1" name="billing_address_1" class="input" />
+          </div>
+          <div class="form-group">
+            <label for="billing_city">Town / City</label>
+            <input type="text" id="billing_city" name="billing_city" class="input" />
+          </div>
+          <div class="form-group">
+            <label for="billing_state_field">State</label>
+            <input type="text" id="billing_state_field" name="billing_state" class="input"
+              aria-owns="select2-billing_state-results" />
+          </div>
+          <div class="form-group">
+            <label for="billing_postcode">Postcode / ZIP</label>
+            <input type="text" id="billing_postcode" name="billing_postcode" class="input" />
+          </div>
+          <div class="form-group">
+            <label for="billing_phone">Phone</label>
+            <input type="text" id="billing_phone" name="billing_phone" class="input" />
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-dark btn-rounded btn-sm">Save Address</button>
+          </div>
+          <div class="woocommerce-message submit-status" id="billing-success" role="status" style="display: none;">
+          </div>
+          <div class="woocommerce-error" id="billing-error" role="alert" style="display: none;"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Shipping Address form (US04) - locators for ShippingAddressPageMeryem -->
+    <section class="panel panel-shipping" id="panel-shipping" style="display: none;">
+      <div class="container narrow">
+        <h2 class="auth-tab-heading">Shipping Address</h2>
+        <form id="form-shipping" class="form">
+          <div class="form-group">
+            <label for="shipping_first_name">First name</label>
+            <input type="text" id="shipping_first_name" name="shipping_first_name" class="input" />
+            <span class="field-error" data-id="shipping_first_name" style="display: none;"></span>
+          </div>
+          <div class="form-group">
+            <label for="shipping_last_name">Last name</label>
+            <input type="text" id="shipping_last_name" name="shipping_last_name" class="input" />
+            <span class="field-error" data-id="shipping_last_name" style="display: none;"></span>
+          </div>
+          <div class="form-group">
+            <label for="shipping_company">Company name (optional)</label>
+            <input type="text" id="shipping_company" name="shipping_company" class="input" />
+          </div>
+          <div class="form-group">
+            <label for="shipping_country">Country / Region</label>
+            <select id="shipping_country" name="shipping_country" class="input">
+              <option value="">Select country</option>
+              <option value="Turkey">Turkey</option>
+              <option value="Albania">Albania</option>
+              <option value="Germany">Germany</option>
+            </select>
+            <span class="field-error" data-id="shipping_country" style="display: none;"></span>
+          </div>
+          <div class="form-group">
+            <label for="shipping_address_1">Street address</label>
+            <input type="text" id="shipping_address_1" name="shipping_address_1" class="input"
+              placeholder="House number and street name" />
+            <span class="field-error" data-id="shipping_address_1" style="display: none;"></span>
+          </div>
+          <div class="form-group">
+            <label for="shipping_address_2">Apartment, suite, etc. (optional)</label>
+            <input type="text" id="shipping_address_2" name="shipping_address_2" class="input" />
+          </div>
+          <div class="form-group">
+            <label for="shipping_postcode">Postcode / ZIP</label>
+            <input type="text" id="shipping_postcode" name="shipping_postcode" class="input" />
+            <span class="field-error" data-id="shipping_postcode" style="display: none;"></span>
+          </div>
+          <div class="form-group">
+            <label for="shipping_city">Town / City</label>
+            <input type="text" id="shipping_city" name="shipping_city" class="input" />
+            <span class="field-error" data-id="shipping_city" style="display: none;"></span>
+          </div>
+          <div class="form-group">
+            <label for="shipping_state">Province</label>
+            <select id="shipping_state" name="shipping_state" class="input">
+              <option value="">Select province</option>
+              <option value="Istanbul">Istanbul</option>
+              <option value="Ankara">Ankara</option>
+              <option value="Berat">Berat</option>
+            </select>
+            <span class="field-error" data-id="shipping_state" style="display: none;"></span>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-dark btn-rounded btn-sm" name="save_address">Save Address</button>
+          </div>
+          <div class="woocommerce-message" id="shipping-success" role="status" style="display: none;"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; Test Store — Demo for test automation. US01/US02/US03 (Anasayfa), US04 (Shipping).</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js?v=20260209-3"></script>
+</body>
+
+</html>
