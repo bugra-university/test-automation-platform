@@ -6,7 +6,7 @@ A full-stack **test automation platform** with a web dashboard. It manages test 
   <img src="./vizja-logo.png" alt="Uniwersytet Vizja" width="300"/>
 
 ### Graduation Thesis Project
-**University of Economics and Human Sciences in Warsaw**
+**Vizja University**
 
 **Student:** Buğra Han - 42078
   
@@ -291,7 +291,7 @@ This project is part of a graduation thesis at the **Vizja University**.
 
 **Buğra Han**  
 Student ID: 42078  
-University of Economics and Human Sciences in Warsaw
+Vizja University
 
 ---
 
