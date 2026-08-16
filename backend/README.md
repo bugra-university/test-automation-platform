@@ -4,7 +4,7 @@
   <img src="docs/images/vizja-logo.png" alt="Uniwersytet Vizja" width="300"/>
   
   ### Graduation Thesis Project
-  **University of Economics and Human Sciences in Warsaw**
+  **Vizja University**
   
   **Student:** Buğra Han - 42078
   
@@ -426,7 +426,7 @@ This is a graduation thesis project. Contributions are welcome for educational p
 
 ## 📄 License
 
-This project is part of a graduation thesis at the **University of Economics and Human Sciences in Warsaw**.
+This project is part of a graduation thesis at the **Vizja University**.
 
 **Student:** Buğra Han (ID: 42078)  
 **Academic Year:** 2025/2026
@@ -437,7 +437,7 @@ This project is part of a graduation thesis at the **University of Economics and
 
 **Buğra Han**  
 Student ID: 42078  
-University of Economics and Human Sciences in Warsaw
+Vizja University
 
 ---
 
