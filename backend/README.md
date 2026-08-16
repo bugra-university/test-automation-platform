@@ -442,6 +442,6 @@ University of Economics and Human Sciences in Warsaw
 ---
 
 <div align="center">
-  <p>Made with ❤️ for graduation thesis</p>
+  <p>Made it for graduation thesis</p>
   <p>© 2026 Uniwersytet Vizja - All Rights Reserved</p>
 </div>
